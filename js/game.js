@@ -4,6 +4,8 @@
 const MINE = '💣';
 const FLAG = '🚩';
 var gBoard;
+var gTimeInterval = null;
+var gIsFirstClick = true;
 
 var gLevels = [
   {
@@ -29,3 +31,12 @@ var gGame = {
   markedCount: 0,
   secsPassed: 0,
 };
+
+function init(level) {
+  var currLevel = level;
+  var elTime = document.querySelector('.time h3');
+  gGame.isOn = true;
+  elTime.innerText = '0.000';
+  gBoard = buildBoard(gLevels[currLevel].size);
+  renderBoard(gBoard);
+}

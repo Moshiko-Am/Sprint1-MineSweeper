@@ -15,15 +15,23 @@
         <div class="header-container">
             <h1 class="title">MineSweeper Game</h1>
             <div class="header-btns">
-                <button class="btn btn-easy" onclick="addMines(0)">easy</button>
-                <button class="btn btn-medium" onclick="addMines(1)">medium</button>
-                <button class="btn btn-hard" onclick="addMines(2)">hard</button>
+                <button class="btn btn-easy" onclick="init(0)">Beginner</button>
+                <button class="btn btn-medium" onclick="init(1)">Medium</button>
+                <button class="btn btn-hard" onclick="init(2)">Expert</button>
             </div>
         </div>
         <div class="table-content">
             <table>
                 <tbody class="board"></tbody>
             </table>
+        </div>
+        <div class="timer-container">
+            <div class="timer-title">
+                <h2>Your Time:</h2>
+            </div>
+            <div class="time">
+                <h3>0.000</h3>
+            </div>
         </div>
     </div>
 

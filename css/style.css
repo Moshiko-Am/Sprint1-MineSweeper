@@ -87,3 +87,23 @@ td {
 .revealed {
   background-color: rgb(168, 160, 160);
 }
+
+.timer-container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.timer-title h2 {
+  margin: 0;
+}
+
+.time h3 {
+  margin: 0;
+}
