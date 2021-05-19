@@ -4,8 +4,6 @@
 
 window.addEventListener('contextmenu', (e) => e.preventDefault());
 
-renderBoard(gBoard);
-
 function buildBoard(size) {
   var board = [];
   for (var i = 0; i < size; i++) {
@@ -19,8 +17,6 @@ function buildBoard(size) {
       };
     }
   }
-  board[getRandomInt(0, size - 1)][getRandomInt(0, size - 1)].isMine = true;
-  board[getRandomInt(0, size - 1)][getRandomInt(0, size - 1)].isMine = true;
 
   return board;
 }
@@ -203,4 +199,13 @@ function getTime() {
     time = parseFloat(time).toFixed(3);
     elTime.innerText = time;
   }, 100);
+}
+
+function addMines(count) {
+  console.log(count);
+  for (var i = 0; i < count; i++) {
+    var rndIdxI = getRandomInt(0, gBoard.length - 1);
+    var rndIdxJ = getRandomInt(0, gBoard.length - 1);
+    gBoard[rndIdxI][rndIdxJ].isMine = true;
+  }
 }

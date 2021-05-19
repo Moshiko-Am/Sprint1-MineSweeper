@@ -38,5 +38,6 @@ function init(level) {
   gGame.isOn = true;
   elTime.innerText = '0.000';
   gBoard = buildBoard(gLevels[currLevel].size);
+  addMines(gLevels[currLevel].mines);
   renderBoard(gBoard);
 }
