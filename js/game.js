@@ -4,8 +4,22 @@
 const MINE = '💣';
 const FLAG = '🚩';
 var gBoard;
-var gTimeInterval = null;
+var gEmptyPositions = [];
+var currLevel;
+var gTimeInterval;
 var gIsFirstClick = true;
+var gGameIsOn = true;
+var gLives;
+
+var gMineSound = new Audio('sounds/explosion-sound.mp3');
+var gWinSound = new Audio('sounds/funny-blowing-trumpet-sound-effect.mp3');
+var gLose = new Audio('sounds/lose.mp3');
+var gLifeLeft = document.querySelector('.life-left');
+var gLifeRight = document.querySelector('.life-right');
+var gLifeCenter = document.querySelector('.life-center');
+gLifeLeft.innerText = '❤️';
+gLifeCenter.innerText = '❤️';
+gLifeRight.innerText = '❤️';
 
 var gLevels = [
   {
@@ -33,11 +47,21 @@ var gGame = {
 };
 
 function init(level) {
-  var currLevel = level;
+  gLifeLeft.innerText = '❤️';
+  gLifeCenter.innerText = '❤️';
+  gLifeRight.innerText = '❤️';
+  gLives = 3;
+  gGameIsOn = true;
+  currLevel = level;
   var elTime = document.querySelector('.time h3');
+  var elSmiley = document.querySelector('.smiley');
+  elSmiley.innerText = '🤩';
+  clearInterval(gTimeInterval);
+  gIsFirstClick = true;
   gGame.isOn = true;
+  gTimeInterval = null;
   elTime.innerText = '0.000';
+
   gBoard = buildBoard(gLevels[currLevel].size);
-  addMines(gLevels[currLevel].mines);
   renderBoard(gBoard);
 }

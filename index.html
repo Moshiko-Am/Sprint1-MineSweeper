@@ -7,13 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/bomb.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
     <title>Lets MineSweep</title>
 </head>
 
-<body onload="init(0)">
+<body onload="init(1)">
     <div class="wrapper">
         <div class="header-container">
             <h1 class="title">MineSweeper Game</h1>
+            <div class="smiley" onclick="init(1)">
+                🤩
+            </div>
+            <div class="lives-container">
+                <h3>Lives Count:</h3>
+                <div class="lives">
+                    <div class="life-left">❤️</div>
+                    <div class="life-center">❤️</div>
+                    <div class="life-right">❤️</div>
+                </div>
+            </div>
+
             <div class="header-btns">
                 <button class="btn btn-easy" onclick="init(0)">Beginner</button>
                 <button class="btn btn-medium" onclick="init(1)">Medium</button>
@@ -36,6 +51,7 @@
     </div>
 
 
+    <script src="js/main.js"></script>
     <script src="js/game.js"></script>
     <script src="js/utils.js"></script>
 </body>
