@@ -9,6 +9,7 @@ function buildBoard(size) {
   for (var i = 0; i < size; i++) {
     board[i] = [];
     for (var j = 0; j < size; j++) {
+      // creating a board according to the size of the gLevel
       board[i][j] = {
         minesAroundCount: null,
         isShown: false,
@@ -26,8 +27,8 @@ function renderBoard(board) {
   for (var i = 0; i < board.length; i++) {
     strHTML += `<tr>`;
     for (var j = 0; j < board[i].length; j++) {
-      var cellClass = getClassName({ i: i, j: j });
-      var unvisible = board[i][j].isShown ? '' : 'hidden';
+      var cellClass = board[i][j].isShown ? 'revealed' : ''; // giving the cells a different bgc according to the isShown parameter
+      var unvisible = board[i][j].isShown ? '' : 'hidden'; // giving the spans a different style according to the isShown parameter
       var mine;
       if (board[i][j].isMine) {
         mine = MINE;
@@ -35,12 +36,52 @@ function renderBoard(board) {
         mine = board[i][j].minesAroundCount;
       }
 
-      strHTML += `<td id="cell-${i}-${j}" class="${cellClass}" onclick="cellClicked(this)" oncontextmenu="cellMarked(this)"><span class="${unvisible}">${mine}</span></td>`;
+      strHTML += `<td id="cell-${i}-${j}" class="${cellClass}" onclick="cellClicked(this, ${i},${j})" oncontextmenu="cellMarked(this)"><span class="${unvisible}">${mine}</span></td>`;
     }
     strHTML += `</tr>`;
   }
   var elBoard = document.querySelector('.board');
   elBoard.innerHTML = strHTML;
+}
+
+function resetAids() {
+  // reseting the game when init from one function (controlling all the needed properties for a new game)
+  var elSafes = document.querySelectorAll('.safe');
+  var elHints = document.querySelectorAll('.hint');
+  var elTime = document.querySelector('.time h3');
+  var elSmiley = document.querySelector('.smiley');
+  var elHintsModal = document.querySelector('.hints-modal');
+  elHintsModal.innerText = 'Hints are not allowed at first click...';
+  gEmptyPositions = [];
+  for (var i = 0; i < elSafes.length; i++) {
+    elSafes[i].style.visibility = 'visible';
+    elHints[i].style.visibility = 'visible';
+  }
+  gLifeTop.style.visibility = 'visible';
+  gLifeCenter.style.visibility = 'visible';
+  gLifeBottom.style.visibility = 'visible';
+  gSafeClicks = 3;
+  gLives = 3;
+  elSmiley.innerText = '🤩';
+  elTime.innerText = '0.000';
+  clearInterval(gTimeInterval);
+  gTimeInterval = null;
+  gIsFirstClick = true;
+  gIsHintTurn = false;
+}
+
+function instructionsModal() {
+  var elModal = document.querySelector('.instructions');
+  var elBtnOpen = document.querySelector('.btn-open');
+  elBtnOpen.style.opacity = 1;
+  elModal.style.opacity = 0;
+}
+
+function openInstructions() {
+  var elModal = document.querySelector('.instructions');
+  var elBtnOpen = document.querySelector('.btn-open');
+  elModal.style.opacity = 1;
+  elBtnOpen.style.opacity = 0;
 }
 
 function getIdtoPos(id) {
@@ -84,24 +125,3 @@ function shuffle(items) {
   }
   return items;
 }
-
-// function revealSafe(elCell){
-//   if(gIsFirstClick) {
-//     return;
-//   }
-
-// }
-
-// function safeToClick(board) {
-//   var safeClicks = [];
-//   for (var i = 0; i < board.length; i++) {
-//     for (var j = 0; j < board[0].length; j++) {
-//       if (gBoard[i][j].isMine) {
-//         continue;
-//       } else {
-//         safeClicks.push({ i: i, j: j });
-//       }
-//     }
-//   }
-//   return safeClicks;
-// }

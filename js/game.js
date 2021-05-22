@@ -7,19 +7,19 @@ var gBoard;
 var gEmptyPositions = [];
 var currLevel;
 var gTimeInterval;
-var gIsFirstClick = true;
-var gGameIsOn = true;
+var gIsFirstClick;
+var gGameIsOn;
 var gLives;
+var gSafeClicks;
+var gIsHintTurn;
+var gHints;
 
 var gMineSound = new Audio('sounds/explosion-sound.mp3');
 var gWinSound = new Audio('sounds/funny-blowing-trumpet-sound-effect.mp3');
 var gLose = new Audio('sounds/lose.mp3');
-var gLifeLeft = document.querySelector('.life-left');
-var gLifeRight = document.querySelector('.life-right');
+var gLifeTop = document.querySelector('.life-top');
+var gLifeBottom = document.querySelector('.life-bottom');
 var gLifeCenter = document.querySelector('.life-center');
-gLifeLeft.innerText = '❤️';
-gLifeCenter.innerText = '❤️';
-gLifeRight.innerText = '❤️';
 
 var gLevels = [
   {
@@ -43,24 +43,16 @@ var gGame = {
   isOn: false,
   shownCount: 0,
   markedCount: 0,
-  secsPassed: 0,
 };
 
 function init(level) {
-  gLifeLeft.innerText = '❤️';
-  gLifeCenter.innerText = '❤️';
-  gLifeRight.innerText = '❤️';
-  gLives = 3;
-  gGameIsOn = true;
+  resetAids(); // Resets all the starting aids of the game
+  gHints = 3;
   currLevel = level;
-  var elTime = document.querySelector('.time h3');
-  var elSmiley = document.querySelector('.smiley');
-  elSmiley.innerText = '🤩';
-  clearInterval(gTimeInterval);
-  gIsFirstClick = true;
+
+  gGame.shownCount = 0;
+  gGame.markedCount = 0;
   gGame.isOn = true;
-  gTimeInterval = null;
-  elTime.innerText = '0.000';
 
   gBoard = buildBoard(gLevels[currLevel].size);
   renderBoard(gBoard);

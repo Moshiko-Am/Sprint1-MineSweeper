@@ -15,31 +15,51 @@
 
 <body onload="init(1)">
     <div class="wrapper">
-        <div class="header-container">
+        <div class="header">
             <h1 class="title">MineSweeper Game</h1>
-            <div class="smiley" onclick="init(1)">
-                🤩
-            </div>
+        </div>
+        <div class="smiley" onclick="init(1)">🤩</div>
+        <div class="btns-container">
+            <button class="btn btn-easy" onclick="init(0)">Beginner</button>
+            <button class="btn btn-medium" onclick="init(1)">Medium</button>
+            <button class="btn btn-hard" onclick="init(2)">Expert</button>
+        </div>
+
+        <div class="page-center-content">
             <div class="lives-container">
                 <h3>Lives Count:</h3>
                 <div class="lives">
-                    <div class="life-left">❤️</div>
+                    <div class="life-top">❤️</div>
                     <div class="life-center">❤️</div>
-                    <div class="life-right">❤️</div>
+                    <div class="life-bottom">❤️</div>
+                </div>
+            </div>
+            <div class="table-content">
+                <table>
+                    <tbody class="board"></tbody>
+                </table>
+            </div>
+            <div class="safe-modal">No more safe clicks...</div>
+            <div class="safe-clicks">
+                <h3>Safe Clicks:</h3>
+                <div class="safe-container">
+                    <div onclick="safeClicks(this)" class="safe">🔒</div>
+                    <div onclick="safeClicks(this)" class="safe">🔒</div>
+                    <div onclick="safeClicks(this)" class="safe">🔒</div>
+                </div>
+
+                <div class="hint-clicks">
+                    <h3>hints:</h3>
+                    <div class="hints">
+                        <div class="hint" onclick="useHints(this)">💡</div>
+                        <div class="hint" onclick="useHints(this)">💡</div>
+                        <div class="hint" onclick="useHints(this)">💡</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="header-btns">
-                <button class="btn btn-easy" onclick="init(0)">Beginner</button>
-                <button class="btn btn-medium" onclick="init(1)">Medium</button>
-                <button class="btn btn-hard" onclick="init(2)">Expert</button>
-            </div>
         </div>
-        <div class="table-content">
-            <table>
-                <tbody class="board"></tbody>
-            </table>
-        </div>
+        <div class="hints-modal">Hints are not allowed at first click...</div>
         <div class="timer-container">
             <div class="timer-title">
                 <h2>Your Time:</h2>
@@ -48,8 +68,37 @@
                 <h3>0.000</h3>
             </div>
         </div>
+        <div class="copyrights">
+            <h4>&copy Moshiko Amsalem</h4>
+        </div>
     </div>
+    <button class="btn-instructions btn-open" onclick="openInstructions()">Open Instructions</button>
+    <div class="instructions">
+        <h2>Welcome to MineSweeper game!</h2>
+        <p class="instruction-text">The goal of the game is to reveal all the cells in the field and put flags on all of
+            the mines.</p>
+        <p>You start the game with:</p>
+        <p>3 Lives.</p>
+        <p>3 Safe clicks.</p>
+        <p>3 Hints (Not allowd on your first click).</p>
+        <hr>
+        <h3>The game is divided to three levels:</h3>
+        <p>Beginner: 16 cells to clear (2 mines).</p>
+        <p>Medium: 64 cells to clear (12 mines).</p>
+        <p>Expert: 144 cells to clear (30 mines).</p>
+        <hr>
+        <h3>Restrictions:</h3>
+        <p>If you click on a mine - you lose one life.</p>
+        <p>If you click on mine three time - game over.</p>
+        <hr>
+        <p>Try finishing the game as quick as possible.</p>
+        <p class="instruction-text">If you want to restart the game, you can do so by clicking the Emoji or by
+            selecting a level.</p>
+        <hr>
+        <h2 class="good-luck">Good Luck!</h2>
+        <button class="btn-instructions" onclick="instructionsModal()">Close</button>
 
+    </div>
 
     <script src="js/main.js"></script>
     <script src="js/game.js"></script>
