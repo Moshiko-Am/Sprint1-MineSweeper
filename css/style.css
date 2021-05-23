@@ -1,6 +1,12 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   font-family: 'Newsreader', serif;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
@@ -17,7 +23,8 @@ h4 {
 }
 
 h4 {
-  margin-top: 10px;
+  margin-top: 1rem;
+  font-size: 1.4rem;
 }
 
 .wrapper {
@@ -32,19 +39,19 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .title {
   color: #fff;
   text-align: center;
-  font-size: 40px;
+  font-size: 4rem;
   margin-bottom: 0;
 }
 
 .smiley {
   text-align: center;
-  font-size: 40px;
+  font-size: 4rem;
   cursor: pointer;
   transition: all 0.1s;
 }
@@ -62,10 +69,10 @@ h4 {
   border: none;
   box-shadow: 0 0 10px 0 #000000bf;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 700;
-  margin: 20px;
-  padding: 10px 25px;
+  margin: 2rem;
+  padding: 1rem 2.5rem;
   transition: all 0.3s;
 }
 
@@ -92,12 +99,12 @@ h4 {
 
 .table-content {
   position: relative;
-  left: 80px;
+  left: 8rem;
 }
 
 td {
-  width: 40px;
-  height: 40px;
+  width: 4rem;
+  height: 4rem;
   background-color: #fff;
   border: 1px solid #000000;
   text-align: center;
@@ -108,6 +115,10 @@ td {
 
 td:hover {
   background-color: #58daf1;
+}
+
+td span {
+  font-size: 2rem;
 }
 
 .safe-clicks,
@@ -122,8 +133,8 @@ td:hover {
 .hint {
   cursor: pointer;
   transition: all 0.1s;
-  font-size: 30px;
-  margin: 0 10px;
+  font-size: 3rem;
+  margin: 0 1rem;
 }
 
 .safe:hover,
@@ -136,37 +147,37 @@ td:hover {
   background-color: #fff;
   border-radius: 10px;
   display: flex;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  height: 70px;
+  height: 7rem;
   justify-content: center;
-  left: 300px;
+  left: 30rem;
   opacity: 0;
   position: relative;
   text-align: center;
-  top: 80px;
+  top: 8rem;
   transition: all 0.3s;
-  width: 150px;
+  width: 15rem;
 }
 
 .hints-modal {
   align-items: center;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 1rem;
   display: flex;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  height: 70px;
+  height: 7rem;
   justify-content: center;
   opacity: 0;
   position: relative;
-  left: 450px;
-  bottom: 120px;
+  left: 45rem;
+  bottom: 12rem;
   text-align: center;
   transition: all 0.3s;
-  width: 150px;
-  height: 100px;
-  padding: 10px;
+  width: 15rem;
+  height: 10rem;
+  padding: 1rem;
 }
 
 .lives-container,
@@ -177,10 +188,10 @@ td:hover {
   justify-content: flex-start;
   align-items: center;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 2.5rem;
   color: #fff;
   border-radius: 10px;
-  padding: 10px;
+  padding: 1rem;
 }
 
 .lives,
@@ -188,15 +199,14 @@ td:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 10px;
-
-  font-size: 30px;
+  margin-top: 1rem;
+  font-size: 3rem;
 }
 
 .life-bottom,
 .life-top,
 .life-center {
-  margin: 0 10px;
+  margin: 0 1rem;
 }
 
 .hidden {
@@ -218,18 +228,20 @@ td:hover {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  height: 50px;
+  height: 5rem;
   justify-content: center;
-  width: 200px;
+  width: 20rem;
 }
 
 .timer-title h2 {
   margin: 0;
+  font-size: 2rem;
 }
 
 .time h3 {
   margin: 0;
   color: #000000;
+  font-size: 1.6rem;
 }
 
 .bulb {
@@ -239,31 +251,33 @@ td:hover {
 .instructions {
   display: none;
   position: absolute;
-  top: 10px;
+  top: 1rem;
   right: 40%;
-  width: 500px;
+  width: 50rem;
   background-color: #d88ceb;
   border-radius: 10px;
-  padding: 20px;
+  padding: 2rem;
   transition: all 0.3s;
 }
 
 .instructions h2 {
   color: #fff;
+  font-size: 2rem;
 }
 
 .instructions h3 {
   text-decoration: underline;
-  letter-spacing: 1px;
+  letter-spacing: 0.1rem;
+  font-size: 1.6rem;
 }
 
 .instructions p {
   font-weight: 600;
-  font-size: 17px;
+  font-size: 1.7rem;
 }
 
 .instruction-text {
-  line-height: 20px;
+  line-height: 2rem;
 }
 
 .good-luck {
@@ -273,13 +287,13 @@ td:hover {
 
 .btn-instructions,
 .btn-open {
-  margin-top: 20px;
-  font-size: 20px;
+  margin-top: 2rem;
+  font-size: 2rem;
   font-weight: 700;
   cursor: pointer;
-  padding: 10px;
+  padding: 1rem;
   position: relative;
-  left: 150px;
+  left: 40%;
   border-radius: 10px;
   border: none;
   box-shadow: 0 0 10px 0 #000000bf;
@@ -293,8 +307,307 @@ td:hover {
 
 .btn-open {
   position: absolute;
-  top: 10px;
-  left: 1700px;
+  top: 1rem;
+  left: 170rem;
   opacity: 1;
   cursor: pointer;
+}
+
+.menu-icon {
+  display: none;
+}
+
+/* Mobile Responsiveness (min of 425px) */
+@media screen and (min-width: 425px) {
+  html {
+    max-width: 100%;
+  }
+  body {
+    max-width: 100%;
+  }
+  .wrapper {
+    max-width: 100%;
+  }
+
+  .btn-instructions.btn-open {
+    display: none !important;
+  }
+
+  .instructions {
+    left: 1rem;
+    top: 0;
+    width: 400px;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .btns-container {
+    width: 350px;
+    margin-top: 1rem;
+    justify-content: space-around;
+  }
+
+  .btn {
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .btn-hard {
+    display: none;
+  }
+
+  .page-center-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .board {
+    width: 350px;
+  }
+
+  .table-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    left: 0;
+  }
+
+  td {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  td span {
+    font-size: 1.5rem;
+  }
+
+  .lives-container {
+    order: 1;
+    padding: 0;
+  }
+
+  .lives-container h3 {
+    display: none;
+  }
+
+  .safe-clicks {
+    flex-direction: row;
+    margin-top: -5rem;
+  }
+
+  .safe-clicks h3 {
+    display: none;
+  }
+
+  .safe-container,
+  .lives {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+  }
+
+  .hints {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .hints-modal {
+    visibility: hidden;
+  }
+
+  .safe-modal {
+    visibility: hidden;
+  }
+
+  .timer-container {
+    margin-top: -5rem;
+  }
+
+  .menu-icon {
+    display: inline-block;
+    width: 35px;
+    position: relative;
+    bottom: 70rem;
+    left: 37rem;
+  }
+}
+
+@media screen and (min-width: 570px) {
+  .menu-icon {
+    left: 50rem;
+  }
+
+  td {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .lives {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .btns-container {
+    width: 80%;
+  }
+
+  .btn-hard {
+    display: block;
+  }
+
+  .table-content {
+    width: 550px;
+  }
+
+  td {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  td span {
+    font-size: 2rem;
+  }
+
+  .page-center-content {
+    flex-direction: row;
+    position: relative;
+    left: 8rem;
+  }
+
+  .lives-container {
+    order: initial;
+  }
+
+  .lives,
+  .safe-container,
+  .hints {
+    flex-direction: column;
+  }
+
+  .safe-clicks {
+    flex-direction: column;
+    position: relative;
+    right: 14rem;
+  }
+
+  .timer-container {
+    position: relative;
+    bottom: 2rem;
+  }
+
+  .copyrights {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+  }
+
+  .menu-icon {
+    left: 70rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .menu-icon {
+    display: none;
+  }
+
+  .btn-instructions.btn-open {
+    display: block !important;
+    position: absolute;
+    left: 82rem;
+  }
+
+  .btn {
+    padding: 1rem 2.5rem;
+  }
+
+  .table-content {
+    justify-content: space-between;
+  }
+
+  .board {
+    max-width: fit-content;
+  }
+
+  .lives {
+    margin-right: 7rem;
+  }
+
+  .safe-clicks {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .safe-clicks h3 {
+    display: block;
+    text-align: center;
+  }
+
+  .lives-container h3 {
+    display: block;
+    text-align: center;
+    margin-right: 7rem;
+    margin-bottom: 2rem;
+  }
+
+  .safe-modal {
+    visibility: hidden;
+  }
+
+  .hints-modal {
+    visibility: visible;
+    position: relative;
+    left: 40rem;
+    bottom: 5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .btn-instructions.btn-open {
+    left: 100rem;
+  }
+
+  .safe-modal {
+    visibility: visible;
+    position: relative;
+    left: 15rem;
+    top: -7rem;
+  }
+
+  .hints-modal {
+    left: 54rem;
+    bottom: 22rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .btn-instructions.btn-open {
+    left: 125rem;
+  }
+
+  .btns-container {
+    max-width: 800px;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .btn-instructions.btn-open {
+    left: 150rem;
+  }
+}
+
+@media screen and (min-width: 1850px) {
+  .btn-instructions.btn-open {
+    left: 165rem;
+  }
 }
