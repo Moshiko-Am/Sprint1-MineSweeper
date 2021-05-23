@@ -73,15 +73,15 @@ function resetAids() {
 function instructionsModal() {
   var elModal = document.querySelector('.instructions');
   var elBtnOpen = document.querySelector('.btn-open');
-  elBtnOpen.style.opacity = 1;
-  elModal.style.opacity = 0;
+  elBtnOpen.style.display = 'block';
+  elModal.style.display = 'none';
 }
 
 function openInstructions() {
   var elModal = document.querySelector('.instructions');
   var elBtnOpen = document.querySelector('.btn-open');
-  elModal.style.opacity = 1;
-  elBtnOpen.style.opacity = 0;
+  elModal.style.display = 'block';
+  elBtnOpen.style.display = 'none';
 }
 
 function getIdtoPos(id) {
