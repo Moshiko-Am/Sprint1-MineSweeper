@@ -318,6 +318,138 @@ td span {
 }
 
 /* Mobile Responsiveness (min of 425px) */
+@media screen and (max-width: 425px) {
+  html {
+    max-width: 100%;
+  }
+
+  body {
+    max-width: 100%;
+  }
+
+  .wrapper {
+    max-width: 100%;
+  }
+
+  .btn-instructions.btn-open {
+    display: none !important;
+  }
+
+  .instructions {
+    left: 1rem;
+    top: 0;
+    width: 300px;
+  }
+
+  .instructions h2 {
+    font-size: 1.7rem;
+  }
+
+  .instructions h3 {
+    font-size: 1.4rem;
+  }
+
+  .instructions p {
+    font-size: 1.3rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .btns-container {
+    width: 350px;
+    margin-top: 1rem;
+    justify-content: space-around;
+  }
+
+  .btn {
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .btn-hard {
+    display: none;
+  }
+  .page-center-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .board {
+    width: 350px;
+  }
+
+  .table-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    left: 0;
+  }
+
+  td {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  td span {
+    font-size: 1.5rem;
+  }
+
+  .lives-container {
+    order: 1;
+    padding: 0;
+  }
+
+  .lives-container h3 {
+    display: none;
+  }
+
+  .safe-clicks {
+    flex-direction: row;
+    margin-top: -5rem;
+  }
+
+  .safe-clicks h3 {
+    display: none;
+  }
+
+  .safe-container,
+  .lives {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+  }
+
+  .hints {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .hints-modal {
+    visibility: hidden;
+  }
+
+  .safe-modal {
+    visibility: hidden;
+  }
+
+  .timer-container {
+    margin-top: -5rem;
+  }
+
+  .menu-icon {
+    display: inline-block;
+    width: 35px;
+    position: relative;
+    bottom: 65rem;
+    left: 26rem;
+  }
+}
+
 @media screen and (min-width: 425px) {
   html {
     max-width: 100%;

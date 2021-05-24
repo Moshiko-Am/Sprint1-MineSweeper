@@ -29,12 +29,7 @@ function renderBoard(board) {
     for (var j = 0; j < board[i].length; j++) {
       var cellClass = board[i][j].isShown ? 'revealed' : ''; // giving the cells a different bgc according to the isShown parameter
       var unvisible = board[i][j].isShown ? '' : 'hidden'; // giving the spans a different style according to the isShown parameter
-      var mine;
-      if (board[i][j].isMine) {
-        mine = MINE;
-      } else {
-        mine = board[i][j].minesAroundCount;
-      }
+      var mine = board[i][j].isMine ? MINE : board[i][j].minesAroundCount;
 
       strHTML += `<td id="cell-${i}-${j}" class="${cellClass}" onclick="cellClicked(this, ${i},${j})" oncontextmenu="cellMarked(this)"><span class="${unvisible}">${mine}</span></td>`;
     }

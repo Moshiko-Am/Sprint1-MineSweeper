@@ -24,7 +24,6 @@ function checkGameOver() {
   ) {
     isWin = true;
     gGame.isOn = false;
-    gGame.isOn = false;
   }
   return isWin;
 }
@@ -71,20 +70,21 @@ function cellMarked(elCell) {
 }
 
 function cellClicked(elCell, i, j) {
-  var cellId = getIdtoPos(elCell.id);
-  var location = gBoard[cellId.i][cellId.j];
-  var elTd = document.querySelector(`#cell-${+cellId.i}-${+cellId.j}`);
-  var elSpan = document.querySelector(`#cell-${cellId.i}-${cellId.j} span`);
-  var elSmiley = document.querySelector('.smiley');
-  var minesCount = gLevels[currLevel].mines;
-
   if (!gGame.isOn) {
     return;
   }
 
+  var cellId = getIdtoPos(elCell.id);
+  var location = gBoard[cellId.i][cellId.j];
+
   if (location.isMarked) {
     return;
   }
+
+  var elTd = document.querySelector(`#cell-${+cellId.i}-${+cellId.j}`);
+  var elSpan = document.querySelector(`#cell-${cellId.i}-${cellId.j} span`);
+  var elSmiley = document.querySelector('.smiley');
+  var minesCount = gLevels[currLevel].mines;
 
   if (gIsFirstClick) {
     gIsFirstClick = false;
@@ -307,10 +307,11 @@ function updateLives() {
 }
 
 function safeClicks(elBtn) {
-  gSafeClicks--;
   if (!gGame.isOn) {
     return;
   }
+
+  gSafeClicks--;
 
   if (gSafeClicks <= 0) {
     var elSafeModal = document.querySelector('.safe-modal');
@@ -374,9 +375,9 @@ function hintNegs(cellI, cellJ, toHide) {
         gBoard[i][j].isShown = !toHide ? true : false; // checking the condition to know which cell we need to stop showing
 
         if (toHide) {
-          elSpan.classList.add('hidden');
+          elSpan.classList.toggle('hidden');
         } else {
-          elSpan.classList.remove('hidden');
+          elSpan.classList.toggle('hidden');
         }
       }
     }
